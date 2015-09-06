@@ -4,7 +4,10 @@ $(document).ready(function() {
         $(".recordList").remove();
         $.getJSON("/json/record.json", function(result) {
             for (var i = 0; i < result.list.length; i++) {
-                var node = "<tr class = \"recordList\"><th>" + result.list[i].company + "</th><th>" + result.list[i].position + "</th><th>" + result.list[i].status + "</th><th>" + result.list[i].comment + "</th>" + "<th><button type=\"button\" class=\"btn btn-primary\"> <span class=\"glyphicon glyphicon-wrench\" aria-hidden=\"true\"> </span> modify </button> &nbsp;" + "<button type=\"button\" id=\"" + i + "\" class=\"btn btn-danger deleteList" + "\"> <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"> </span> delete </button></th></tr>";
+                var node = "<tr class = \"recordList\"><th>" + result.list[i].company + "</th><th>" + 
+                result.list[i].position + "</th><th>" + result.list[i].status + "</th><th>" + 
+                result.list[i].comment + "</th>" + "<th><button type=\"button\" class=\"btn btn-primary modifyList hidden\"> <span class=\"glyphicon glyphicon-wrench\" aria-hidden=\"true\"> </span> modify </button> &nbsp;" + 
+                "<button type=\"button\" id=\"" + i + "\" class=\"btn btn-danger deleteList" + "\"> <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"> </span> delete </button></th></tr>";
                 $("table").append(node);
             }
         });
